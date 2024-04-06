@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deux Rectangles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .rectangle {
+            float: left;
+        }
+
+        #rect1, #rect2 {
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        #rect1 {
+            width: 37%;
+        }
+
+        #rect2 {
+            width: 63%; /* Ajusté pour totaliser 100% avec #rect1 */
+            background-color: #dc9d9b; /* Couleur ajustée pour une meilleure visibilité du texte */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .sub-rectangle {
+            width: 100%;
+            height: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #sub-rect1 {
+            background-color: #FAC6C4;
+        }
+
+        #sub-rect2 {
+            background-color: #ffe4e3;
+        }
+
+        .centered-title {
+            margin: 0;
+            color: white;
+            font-family: 'Advent Pro', sans-serif;
+            font-size: 54px;
+        }
+
+        .centered-image img {
+            max-height: 90%; /* Assure que l'image ne dépasse pas la hauteur du rectangle */
+            max-width: 90%; /* Assure que l'image ne dépasse pas la largeur du rectangle */
+            margin-top: 30px; /* Nouvelle propriété ajoutée */
+        }
+
+        /*
+        h2, p, li, a {
+            color: white; 
+            line-height: 1.5;
+        }
+
+        a {
+            color: #FFD700;
+        }*/
+        h2 {
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 36px; /* Taille maintenue pour les sous-titres */
+    font-weight: 600; /* Poids plus lourd pour une distinction claire */
+    color: #FFF; /* Couleur blanche pour un contraste élevé */
+    text-shadow: 1px 1px 2px #000; /* Ombre de texte réduite pour moins de dominance */
+}
+
+p, li {
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 400; /* Poids léger pour le texte normal */
+    font-size: 18px; /* Augmentation de la taille de police pour une meilleure lisibilité */
+    color: #f4f4f4; /* Couleur ajustée pour le corps du texte */
+}
+
+a {
+    font-weight: 500; /* Poids intermédiaire pour les liens, améliorant la distinction */
+    text-decoration: underline; /* Soulignement pour une reconnaissance facile des liens */
+}
+.back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #FAC6C4;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Advent Pro', sans-serif;
+            z-index: 1000;
+        }
+
+    </style>
+</head>
+<body>
+    <a href="./index.html" class="back-button">Retour</a>
+    <div class="rectangle" id="rect1">
+        <div class="sub-rectangle" id="sub-rect1">
+            <h1 class="centered-title">Les dépôts</h1>
+        </div>
+        <div class="sub-rectangle centered-image" id="sub-rect2">
+            <img src="./images/selfie_cut.png" alt="Image centrée">
+        </div>
+    </div>
+    <div class="rectangle" id="rect2">
+        <h2>CRITÈRES DE DÉPÔTS</h2>
+        <p>Maximum 15 pièces par dépôt. Vêtements femme dans un état impeccable, sans trous, ni tâches, ni bouloches. Pas de chaussures sauf si étiquetées. Vêtements fraîchement lavés, sans odeur de tabac, ni d’humidité. Pièces de collections récentes, de marques de qualité ou pièces fortes de chaînes.</p>
+        <p>Nous effectuons un tri de vos vêtements afin de sélectionner ceux qui auront le plus de chance d’avoir une seconde vie. Nous ne prenons donc pas systématiquement tous les articles déposés. Si vous le souhaitez, les vêtements que nous ne prenons pas peuvent être donnés à notre association partenaire.</p>
+            
+        <h2>ORGANISATION DES DÉPÔTS</h2>
+        <ul>
+            <li><strong>Option rendez-vous</strong> : le dépôt se fait sur rendez-vous de 20min. Vous prenez rdv via instagram/téléphone/site internet sur un créneau disponible. Les créneaux de dépôts concernent des moments où la boutique est fermée à la clientèle (tous les matins de 9h à 10h) afin que l’on soit pleinement disponibles pour sélectionner les pièces, indiquer le prix de vente et réaliser le contrat et le bon de dépôt avec vous.</li>
+            <li><strong>Option dépôt rapide</strong> : un dépôt peut se faire sans rendez-vous, à tout moment dans la semaine. Dans ce cas, vous laissez un sac avec vos vêtements et <a href="url">un bon de dépôt</a>. Nous vérifions simplement et rapidement sur le moment si le nombre de pièces correspond à ce qui est indiqué et si vos coordonnées sont bien renseignées. Par la suite, nous faisons seules le tri des vêtements, fixons les prix et vous envoyons par mail le contrat et le bon de dépôt.</li>
+        </ul>
+
+        <h2>RETRAIT DES DÉPÔTS</h2>
+        <p>Le dépôt dure 2 mois. Pendant cette période, les pièces déposées ne peuvent pas être récupérées. Au bout de deux mois, vous êtes prévenue par un message et vos articles invendus sont retirés des rayons. Vous êtes attendue dans le mois suivant pour venir récupérer vos articles et toucher votre versement (montant total des ventes auquel est retiré 50% de prestation de service pour le dépôt et la vente de vos pièces). Vous pouvez décider de les récupérer ou au choix, nous laisser les déposer à notre association partenaire La Voix des Femmes. Si au bout d’un mois vous n’êtes pas venue, vos articles sont également donnés à cette association.</p>
+    </div>
+</body>
+</html>
+

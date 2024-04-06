@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Page avec moitié basse rouge</title>
+<link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Style global pour le body et html pour s'assurer qu'ils prennent toute la hauteur de la fenêtre */
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  /* Style pour la section qui sera colorée en rouge */
+  .colored-section {
+    background-color: #F9BFB9; /* Couleur de fond */
+    height: 50%; /* Hauteur à 50% du viewport */
+    width: 100%; /* Largeur à 100% */
+    position: fixed; /* Positionnement fixe */
+    bottom: 0; /* Aligné au bas */
+    display: flex; /* Utilisation de Flexbox pour le centrage */
+    justify-content: center; /* Centrage horizontal */
+    align-items: center; /* Centrage vertical */
+  }
+
+  /* Assurer que l'image ne dépasse pas les limites de la section colorée */
+  .colored-section img {
+    margin-top: 30px;
+    max-width: 125%; /* Limite la largeur à 90% de la section pour éviter le débordement */
+    max-height: 125%; /* Limite la hauteur à 90% */
+  }
+
+  .top-left-square {
+  position: fixed; /* Positionnement fixe */
+  top: 0; /* Aligné au haut */
+  left: 0; /* Aligné à gauche */
+  width: 428px; /* Largeur du carré */
+  height: 428px; /* Hauteur du carré */
+  background-color: #e9a29a; /* Couleur de fond du carré */
+  display: flex; /* Utilisation de Flexbox pour le centrage */
+  justify-content: center; /* Centrage horizontal */
+  align-items: center; /* Centrage vertical */
+  font-family: 'Advent Pro', sans-serif; /* Application de la police Advent Pro */
+  font-size: 54px; /* Taille du titre ajustée */
+  color:white;
+}
+
+.back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #FAC6C4;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Advent Pro', sans-serif;
+            z-index: 1000;
+        }
+</style>
+</head>
+<body>
+
+<a href="./index.html" class="back-button">Retour</a>
+
+<div class="top-left-square">La boutique</div>
+
+<div class="colored-section">
+  <img src="./images/item8.png" alt="Image centrée">
+</div>
+
+</body>
+</html>

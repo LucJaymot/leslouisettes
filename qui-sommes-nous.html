@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangles Plus Larges</title>
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 448px; /* Largeur augmentée à 80% */
+        }
+        .rectangle {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white; /* Couleur du texte */
+            font-family: 'Advent Pro', cursive; /* Police Baloo */
+            font-size: 54px; /* Taille du titre ajustée */
+        }
+        .rectangle:first-child {
+            background-color: #FAC6C4; 
+        }
+        .rectangle:last-child {
+            background-color: #dbadab;
+            position: relative; /* Nécessaire pour centrer l'image */
+        }
+        .rectangle img {
+            max-width: 100%;
+            max-height: 100%;
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="rectangle">Les dépôts</div>
+    <div class="rectangle">
+        <!-- Ajoutez votre propre source d'image ici -->
+        <img src="./images/item8.png" alt="Image Centrée">
+    </div>
+</div>
+
+</body>
+</html>
