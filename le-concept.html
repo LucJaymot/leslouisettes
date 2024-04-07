@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disposition ajustée avec Image</title>
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            height: 100%;
+            display: flex;
+            flex-direction: row; /* Organise les éléments horizontalement */
+            justify-content: flex-end; /* Alignement des éléments à droite */
+        }
+        .container {
+            display: flex;
+            position: absolute; /* Permet de placer librement le carré */
+            top: 0;
+            left: 0;
+            width: 50%; /* Largeur du conteneur pour le carré */
+            height: 50%; /* Hauteur du conteneur pour le carré */
+        }
+        /* Styles ajustés pour être plus réactifs */
+.carre {
+    width: 70%; /* Exemple de largeur ajustée */
+    /* Hauteur ajustée proportionnellement */
+    aspect-ratio: 1 / 1; /* Maintient le carré carré */
+    background-color: #F9BFB9;
+}
+
+.rectangle {
+    width: 60%; /* Exemple de largeur ajustée */
+    height: 100vh;
+    background-color: #d29c96;
+}
+
+/* Media queries ajustées pour une meilleure réactivité */
+@media (max-width: 768px) {
+    .carre, .rectangle {
+        width: 100%; /* Les éléments prennent toute la largeur pour les petits écrans */
+    }
+
+    .rectangle-bleu {
+        width: 100%; /* Couvre toute la largeur */
+        height: 30vh; /* Hauteur réduite pour moins d'espace vertical */
+    }
+}
+
+@media (max-width: 480px) {
+    .container, .rectangle, .rectangle-bleu {
+        /* Empile les éléments verticalement pour les très petits écrans */
+        flex-direction: column;
+    }
+
+    .carre, .rectangle, .rectangle-bleu {
+        width: 100%; /* Ajuste la largeur à la fenêtre */
+        height: 33vh; /* Répartit l'espace verticalement entre les éléments */
+    }
+}
+
+        .rectangle img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #df9b98;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Advent Pro', sans-serif;
+            z-index: 1000;
+        }
+
+        .rectangle-bleu {
+    position: absolute;
+    top: 0; /* Commence au sommet de la page */
+    left: 448px; /* Positionne le rectangle bleu directement à droite du carré */
+    width: 20%; /* Largeur fixe du rectangle */
+    height: 100vh; /* Hauteur pour couvrir toute la hauteur de la fenêtre */
+    background-color: blue; /* Couleur de fond bleue */
+}
+
+
+
+    </style>
+</head>
+<body>
+
+<a href="./index.html" class="back-button">Retour</a>
+
+<div class="container">
+    <div class="carre">Le concept</div>
+</div>
+<div class="rectangle">
+    <!-- Remplacer 'your-image-src-here' avec l'URL de votre image -->
+    <img src="./images/test.png" alt="Description de l'image">
+</div>
+<div class="rectangle-bleu"></div>
+
+</body>
+</html>
