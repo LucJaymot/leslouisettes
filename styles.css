@@ -1,0 +1,659 @@
+
+.section {
+  position: absolute;
+  z-index: 0;
+  width: 50%;
+  height: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  transform: scale(1);
+  will-change: transform, contents;
+  transition: transform 0.3s ease;
+}
+
+.logo-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px; /* Ajustez selon la taille de votre logo */
+  height: 200px; /* Ajustez selon la taille de votre logo */
+  z-index: 1000; /* Assurez-vous que cette valeur est supérieure à celle des autres éléments */
+}
+
+.logo-container img {
+  width: 100%;
+  height: auto;
+}
+
+
+@media (max-width: 768px) {
+  .section {
+    overflow: auto;
+  }
+}
+
+/* Supprimer le soulignement des liens et changer la couleur du texte */
+.section a, .section a:visited { /* Styles pour les liens normaux et visités */
+  text-decoration: none; /* Supprime le soulignement */
+  color: #000; /* Couleur du texte noir, ajustez selon vos préférences */
+}
+
+.section a:hover, .section a:focus { /* Styles pour les liens au survol et au focus */
+  color: #000; /* Change la couleur au survol/focus, ajustez selon vos préférences */
+  text-decoration: none; /* Garde le texte non souligné au survol */
+}
+
+/* Styles supplémentaires pour ajuster l'apparence des titres à l'intérieur des liens */
+.section .text h2 {
+  margin: 0; /* Supprime les marges par défaut du navigateur pour les <h2> */
+  color: inherit; /* Assure que la couleur du titre est héritée de celle du lien */
+}
+
+/* Optionnel: Ajouter une légère animation ou transformation au survol pour améliorer l'interaction utilisateur */
+.section:hover {
+  transform: scale(1.05); /* Légère augmentation de taille au survol */
+}
+
+
+.section:nth-child(1) {
+  top: 0;
+  left: 0;
+  background: #FAC6C4;
+  border-bottom: 1px solid white; /* Bordure en bas */
+  border-right: 1px solid white; /* Bordure à droite */
+}
+
+.section:nth-child(2) {
+  top: 0;
+  left: 50%;
+  background: #F8B5B2;
+  border-bottom: 1px solid white; /* Bordure en bas */
+  border-left: 1px solid white; /* Bordure à droite */
+}
+
+.section:nth-child(3) {
+  top: 50%;
+  left: 0;
+  background: #F9BFB9;
+  border-top: 1px solid white; /* Bordure en bas */
+  border-right: 1px solid white; /* Bordure à droite */
+}
+
+.section:nth-child(4) {
+  top: 50%;
+  left: 50%;
+  background: #F2B0B3;
+  border-top: 1px solid white; /* Bordure en bas */
+  border-left: 1px solid white; /* Bordure à droite */
+}
+
+.section.is-expanded {
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  cursor: initial;
+}
+
+.has-expanded-item .section:not(.is-expanded) {
+  transform: scale(0);
+}
+
+.close-sectison {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-size: 4rem;
+  text-align: center;
+  color: #e99894;
+  opacity: 1;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: opacity 150ms linear;
+  will-change: opacity;
+  z-index: 9999;
+  animation: heartbeat 2s infinite;
+}
+
+.close-section:hover {
+  animation: scale 2s infinite;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.section.is-expanded .close-section {
+  opacity: 1;
+  transition-delay: 500ms;
+  pointer-events: initial;
+}
+
+
+/* Demo Styles */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  font: 16px/1.5 'Roboto Slab', sans-serif;
+  background: #000;
+}
+
+.demo-box {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+/* PAGES */
+
+.bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 90px;
+  background-color: #ffffff;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 1rem;
+}
+
+.text {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Advent Pro', sans-serif;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.content:hover .text,
+.content:hover .image {
+  color: #f57a7a;
+  transform: scale(1.1);
+}
+
+.image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image img {
+  max-width: 80%;
+  max-height: 80%;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@font-face {
+  font-family: 'Bellaboo';
+  src: url('bellaboo.ttf');
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bar-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  height: 150px;
+  min-height: 70px;
+  padding: 10px;
+  box-sizing: border-box;
+  z-index: 9999;
+  border-bottom: 3px solid #F2B0B3;
+  box-shadow: 0 8px 0 #e59ea2;
+}
+
+.centered-image {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  width: 200;
+  height: 200;
+}
+
+.right-image {
+  max-height: 50px;
+}
+
+.card-tri {
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  margin: 20px; /* To ensure there's space between multiple cards */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: 90%;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Ensure that the card takes full width for small screens and adjusts to inline-block with a max width for larger screens */
+@media screen and (min-width: 768px) {
+  .card-tri {
+    display: inline-block;
+    width: calc(33.333% - 40px); /* three in a row with margins accounted for */
+  }
+}
+
+.card-tri {
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  margin: 20px; /* To ensure there's space between multiple cards */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: 90%;
+  transition: transform 0.3s ease-in-out;
+  position: relative; /* Position relative to allow absolute positioning of children */
+}
+
+.card-img {
+  max-width: 100%; /* Makes the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  position: absolute;
+  right: 0; /* Align to the right bottom corner */
+  bottom: 0;
+}
+
+/* Optionally, you might want to make the image a bit more responsive in terms of its position relative to the size of the card */
+@media screen and (max-width: 767px) {
+  .card-img {
+    position: relative; /* or absolute, depending on your preference */
+    width: 50%; /* Adjust width as per requirement */
+    right: 10px; /* Adjust the right offset */
+    bottom: 10px; /* Adjust the bottom offset */
+  }
+}
+
+
+.card-section:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.card-section h2 {
+  font-family: 'Advent Pro', sans-serif;
+  color: #eba9aa;
+}
+
+.center-card {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-card {
+  top: 190px;
+  width: 33%;
+  float: left;
+  box-sizing: border-box;
+}
+
+
+/* PAGE 2 */
+
+.card-section-page2 {
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  font-size: 90%;
+  transition: transform 0.3s ease-in-out;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-section-page2 h2 {
+  font-family: 'Advent Pro', sans-serif;
+  color: #eba9aa;
+}
+
+.card-container-section-page2 {
+  padding: 20px;
+  max-height: calc(100vh - 70px);
+  margin-top: 190px;
+}
+
+.image-section-page2 {
+  width: 100%;
+  float: left;
+}
+
+.card-img-page2 {
+  margin-top: -14%;
+  width: 100%;
+}
+
+.card-section-page2:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+/* PAGE 3 */
+
+.card-section-page3 {
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  font-size: 90%;
+  transition: transform 0.3s ease-in-out;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-section-page3 h2 {
+  font-family: 'Advent Pro', sans-serif;
+  color: #eba9aa;
+}
+
+.card-container-section-page3 {
+  padding: 20px;
+  max-height: calc(100vh - 70px);
+  margin-top: 170px;
+}
+
+.info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.hours-container {
+  width: 500px;
+  height: 300px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color:black;
+}
+
+
+.centered-image-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.centered-image-bottom {
+  max-width: 100%;
+  height: auto;
+  margin-top: -65px;
+
+}
+
+.card-tri {
+  --font-color: #633638;
+  --font-color-sub: #633638;
+  --bg-color: #fff;
+  --main-color: #8a585a;
+  --main-focus: #2d8cf0;
+  width: calc(33.33% - 20px);  
+  background: var(--bg-color);
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  color: #633638;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  gap: 10px;
+  margin: 0 20px 30px 20px; /* Ajout des marges ici */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.card {
+  --font-color: #633638;
+  --font-color-sub: #633638;
+  --bg-color: #fff;
+  --main-color: #8a585a;
+  --main-focus: #2d8cf0;
+  background: var(--bg-color);
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  border-radius: 5px;
+  color: #633638;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  gap: 10px;
+  margin: 0 20px 30px 20px; /* Ajout des marges ici */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.card:last-child {
+  justify-content: flex-end;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: radial-gradient(var(--secondary) 30%, var(--background) 30%);
+  background-size: 2px 3px;
+  font-family: "Archivo", sans-serif;
+  color: var(--primary);
+}
+
+.card-container-section {
+  display: flex;
+  justify-content: space-between; /* Espacement entre les cartes */
+  align-items: flex-start;  /* Alignement vertical au début */
+  flex-wrap: wrap;  /* Permet un retour à la ligne en cas d'écran étroit */
+}
+
+.conteneur {
+  display: flex;
+  justify-content: center;  /* pour centrer horizontalement */
+  align-items: center;      /* pour centrer verticalement */
+  margin-top: 200px;
+}
+
+.conteneur-tri {
+  display: flex;
+  align-items: flex-start;      /* pour centrer verticalement */
+  margin-top: 200px;
+}
+
+.bordered-container {
+  --font-color: #633638;
+  --font-color-sub: #633638;
+  --bg-color: #fff;
+  --main-color: #8a585a;
+  --main-focus: #2d8cf0;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  border-radius: 5px;
+}
+
+
+
+
+/* RESPONSIVE */
+/* Styles généraux pour rendre l'image responsive */
+.image img {
+  max-width: 90%;
+  height: auto;
+  display: block; /* pour éliminer l'espace en dessous de l'image */
+}
+
+/* Styles spécifiques pour les téléphones */
+@media (max-width: 768px) and (orientation: portrait){
+  .content {
+    display: flex;
+    flex-direction: column; /* met les enfants en colonne plutôt qu'en ligne */
+    align-items: center; /* centre les éléments horizontalement */
+  }
+
+  .image {
+    order: 1; /* place l'image en dessous du texte */
+    width: 100%; /* utilise la pleine largeur */
+    height: auto; /* s'adapte automatiquement à la hauteur de l'image */
+    margin-bottom: 10%;
+  }
+
+  .text {
+    order: 0; /* place le texte au-dessus de l'image */
+    text-align: center; /* centre le texte horizontalement */
+    font-size: 2.9vw;
+  }
+}
+
+/* RESPONSIVE */
+/* Styles généraux pour rendre l'image responsive */
+.image img {
+  max-width: 90%;
+  height: auto;
+  display: block; /* pour éliminer l'espace en dessous de l'image */
+}
+
+/* Styles spécifiques pour les téléphones */
+@media screen and (max-height: 480px) {
+
+  .section {
+    overflow: auto;
+  }
+  
+}
+
+
+/* Pour les petits appareils (téléphones, 600px et moins) */
+@media only screen and (max-width: 600px) {
+
+  .card-tri {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    height: auto;
+  }
+
+  /*
+  .centered-image,
+  .right-image {
+    width: 80%; 
+    height: auto;
+    margin: 0 auto; 
+  }*/
+
+  .card-tri {
+    width: 100%; /* Les cartes prennent toute la largeur */
+    margin: 10px 0; /* Ajoute de l'espace entre les cartes */
+  }
+
+  .card-img {
+    width: 50%; /* Ajuster la taille de l'image dans la carte */
+  }
+
+  .conteneur-tri {
+    flex-direction: column;
+  }
+
+  /* Ajuster le contenu pour petits écrans */
+  .card-section,
+  .card-section-page2,
+  .card-section-page3 {
+    width: 100%; /* Chaque carte prend toute la largeur de l'écran */
+    margin: 10px 0; /* Ajoute de l'espace entre les cartes */
+  }
+
+  .card-img-page2,
+  .card-img-page3 {
+    width: 100%; /* Images prennent toute la largeur */
+  }
+}
+
+/* Pour les tablettes et les appareils avec un écran plus large (600px et plus) */
+@media only screen and (min-width: 600px) {
+  .card-tri {
+    width: calc(50% - 40px); /* Prendre la moitié de la largeur de l'écran, moins les marges */
+  }
+}
+
+/* Pour les écrans de bureau (992px et plus) */
+@media only screen and (min-width: 992px) {
+  .card-tri {
+    width: calc(33.33% - 40px); /* Trois cartes par ligne */
+  }
+}
+
